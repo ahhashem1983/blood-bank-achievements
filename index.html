@@ -99,7 +99,7 @@ let cur='home',tab=0;
 const K={
 'BB-01':{n:'Blood Bank Licensing Compliance Rate For The First Time',b:65,t:78.5,a:83.3,f:'Monthly',i:'i2'},
 'BB-02':{n:'Blood Bank Readiness Completion Rate',b:44.6,t:58,a:62,f:'Monthly',i:'i3'},
-'BB-03':{n:'Operational Blood Banks Rate',b:70,t:88,a:91,f:'Monthly',i:'i1'},
+'BB-03':{n:'Operational Blood Banks Rate',b:70,t:88,a:100,f:'Monthly',i:'i1'},
 'BB-04':{n:'Blood Bank Staff Training Completion Rate',b:60,t:70,a:75,f:'Quarterly',i:'i4'},
 'BB-05':{n:'Platelet Apheresis Service Activation Rate',b:50,t:66.6,a:100,f:'Quarterly',i:'i3'}};
 const trk=k=>`<div class=trk>${k.a>=k.t?'<span class=cup title="Target exceeded">\ud83c\udfc6</span>':''}<div class=f style="width:${k.a}%"></div><div class=s style="left:${k.b}%"></div><div class=g style="left:${k.t}%"></div></div><div class=lg><span>Baseline ${k.b}</span><span>Target ${k.t}</span><span><strong>Achieved ${k.a}</strong></span></div>`;
@@ -113,7 +113,7 @@ const chips=(a,c,m)=>a.map(x=>`<span class="cp ${c}">${m} ${x}</span>`).join('')
 const bars=(t,sub,cols,u)=>{const mx=Math.max(...cols.map(c=>c.v))*1.18||1;return `<div class=cd><h3>${t}</h3>${sub?`<p class=sub style="margin-top:-6px">${sub}</p>`:''}<div class=bars>${cols.map(c=>`<div class=col><b>${c.v}${u||''}</b><i style="height:${Math.max(6,Math.round(c.v/mx*108))}px;background:var(--${c.c||'blue'})"></i><span>${c.l}</span></div>`).join('')}</div></div>`};
 const I=[
 {id:'i1',n:1,code:'INIT-01',name:'New Blood Bank Activation & Capacity Enhancement',tag:'36 of 36 blood banks operating',k:['BB-03'],s:[['Activation','Blood Bank Activation — Capacity Enhancement','Operational status and key achievements',
-tiles([[36,'Blood banks'],[36,'Already operated','green'],['100%','Operational rate','green'],['88%','September target','teal'],[1,'By the end of Oct. 2026','gold']])+
+tiles([[36,'Blood banks'],[36,'Already operated','green'],['100%','Operational rate','green'],['88%','September target','teal']])+
 `<div class=cd><h3>Operational summary</h3>${ul(['12 collection blood banks','24 storage blood banks','Last storage blood bank entered service in Suez branch (Digestive System)'])}</div>`]]},
 {id:'i2',n:2,code:'INIT-02',name:'Blood Bank Licensing Completion',tag:'29 licensed · 83.3% vs 78.5% target',k:['BB-01'],s:[['Licensing','Blood Bank Licensing Completion','Current licensing position across the blood bank network',
 tiles([[29,'Licensed blood banks','green'],[1,'Awaiting license issuance (hold)'],[1,'Awaiting site inspection'],[5,'Files under preparation','gold'],['83.3%','Sept. achievement','green'],['78.5%','Sept. target','teal']])+
