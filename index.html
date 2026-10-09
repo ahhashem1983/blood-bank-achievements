@@ -113,7 +113,7 @@ const chips=(a,c,m)=>a.map(x=>`<span class="cp ${c}">${m} ${x}</span>`).join('')
 const bars=(t,sub,cols,u)=>{const mx=Math.max(...cols.map(c=>c.v))*1.18||1;return `<div class=cd><h3>${t}</h3>${sub?`<p class=sub style="margin-top:-6px">${sub}</p>`:''}<div class=bars>${cols.map(c=>`<div class=col><b>${c.v}${u||''}</b><i style="height:${Math.max(6,Math.round(c.v/mx*108))}px;background:var(--${c.c||'blue'})"></i><span>${c.l}</span></div>`).join('')}</div></div>`};
 const I=[
 {id:'i1',n:1,code:'INIT-01',name:'New Blood Bank Activation & Capacity Enhancement',tag:'36 of 36 blood banks operating',k:['BB-03'],s:[['Activation','Blood Bank Activation — Capacity Enhancement','Operational status and key achievements',
-tiles([[36,'Blood banks'],[36,'Already operated','green'],['100%','Operational rate','green'],['88%','September target','teal']])+
+tiles([[36,'Blood banks'],[36,'Already operated','green'],['100%','Operational rate','green'],['88%','September target','red']])+
 `<div class=cd><h3>Operational summary</h3>${ul(['12 collection blood banks','24 storage blood banks','Last storage blood bank entered service in Suez branch (Digestive System)'])}</div>`]]},
 {id:'i2',n:2,code:'INIT-02',name:'Blood Bank Licensing Completion',tag:'29 licensed · 83.3% vs 78.5% target',k:['BB-01'],s:[['Licensing','Blood Bank Licensing Completion','Current licensing position across the blood bank network',
 tiles([[29,'Licensed blood banks','green'],[1,'Awaiting license issuance (hold)'],[1,'Awaiting site inspection'],[5,'Files under preparation','gold'],['83.3%','Sept. achievement','green'],['78.5%','Sept. target','teal']])+
