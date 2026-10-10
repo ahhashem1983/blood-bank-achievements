@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +42,9 @@ main:focus{outline:0}
 .t small{color:var(--mut);font-weight:700;letter-spacing:.05em;font-size:11px}
 .t>b{display:block;color:var(--hd);font-size:16px;line-height:1.25}
 .t em{display:block;margin:2px 0 4px;font-style:normal;font-size:13px;color:var(--mut)}
-.trk{position:relative;height:10px;margin:22px 0 4px;background:var(--soft);border-radius:6px}
-.cup{position:absolute;right:0;top:-20px;font-size:16px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+.trk{position:relative;height:10px;margin:38px 0 4px;background:var(--soft);border-radius:6px}
+.cup{position:absolute;right:0;top:-36px;font-size:32px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .trk .f{position:absolute;inset:0 auto 0 0;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--teal))}
-.trk .g{position:absolute;top:-4px;width:3px;height:18px;margin-left:-1px;border-radius:2px;background:var(--ink)}
 .trk .s{position:absolute;top:50%;width:11px;height:11px;margin:-6px 0 0 -6px;background:var(--red);border-radius:0 50% 50% 50%;transform:rotate(45deg);box-shadow:0 0 0 1.5px var(--card)}
 .lg{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;font-size:11.5px;color:var(--mut)}
 .lg strong{color:var(--green)}
@@ -72,8 +72,16 @@ main:focus{outline:0}
 .hb{margin:10px 0}
 .hl{display:flex;justify-content:space-between;gap:8px;font-size:13.5px}
 .hw{height:12px;margin-top:4px;background:var(--soft);border-radius:6px;overflow:hidden}
+.sf{margin:14px 0}
+.sf .hd{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px}
+.sf .hd b{font-size:16px}
+.sf .tkw{position:relative}
+.sf .tkw b{position:absolute;top:-3px;width:3px;height:18px;margin-left:-1px;border-radius:2px;background:var(--gold)}
+.sf .ft{display:flex;justify-content:space-between;align-items:baseline;margin-top:5px;font-size:12.5px;color:var(--mut)}
+.yoy{color:var(--mut)}
+.yoy.up{color:var(--green);font-weight:1000}
+.yoy.dn{color:var(--red);font-weight:600}
 .hw div{height:100%;border-radius:6px}
-.trk .pt{position:absolute;top:50%;width:11px;height:11px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid var(--card)}
 .cp{display:inline-block;margin:0 6px 6px 0;padding:4px 12px;border:1.5px solid;border-radius:999px;font-size:13px;font-weight:600}
 .ok{color:var(--green)}
 .nx{color:var(--gold)}
@@ -98,7 +106,7 @@ const K={
 'BB-03':{n:'Operational Blood Banks Rate',b:70,t:88,a:100,f:'Monthly',i:'i1'},
 'BB-04':{n:'Blood Bank Staff Training Completion Rate',b:60,t:70,a:75,f:'Quarterly',i:'i4'},
 'BB-05':{n:'Platelet Apheresis Service Activation Rate',b:50,t:66.6,a:100,f:'Quarterly',i:'i3'}};
-const trk=k=>`<div class=trk>${k.a>=k.t?'<span class=cup title="Target exceeded">\ud83c\udfc6</span>':''}<div class=f style="width:${k.a}%"></div><div class=s style="left:${k.b}%"></div><div class=g style="left:${k.t}%"></div></div><div class=lg><span>Baseline ${k.b}</span><span>Target ${k.t}</span><span><strong>Achieved ${k.a}</strong></span></div>`;
+const trk=k=>`<div class=trk>${k.a>=k.t?'<span class=cup title="Target exceeded">\ud83c\udfc6</span>':''}<div class=f style="width:${k.a}%"></div><div class=s style="left:${k.b}%"></div></div><div class=lg><span>Baseline ${k.b}</span><span>Target ${k.t}</span><span><strong>Achieved ${k.a}</strong></span></div>`;
 const tiles=a=>`<div class=tg>${a.map(([v,l,c='blue'])=>`<div class=tl><b style="color:var(--${c})">${v}</b><span>${l}</span></div>`).join('')}</div>`;
 const ul=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
 const dl=a=>a.map(([b,t])=>`<p><b>${b}</b> ${t}</p>`).join('');
@@ -106,7 +114,8 @@ const det=(t,a,x='')=>`<details class=cd open><summary>${t}</summary>${dl(a)}${x
 const hb=(l,t,p,c)=>`<div class=hb><div class=hl><span>${l}</span><b>${t}</b></div><div class=hw><div style="width:${p}%;background:var(--${c})"></div></div></div>`;
 const pr=(l,a,b)=>`<div class=hb><div class=hl><span>${l}</span><b>${a} → ${b}</b></div><div class=hw><div style="width:${a/29*100}%;background:var(--blue)"></div></div><div class=hw><div style="width:${b/29*100}%;background:var(--green)"></div></div></div>`;
 const chips=(a,c,m)=>a.map(x=>`<span class="cp ${c}">${m} ${x}</span>`).join('');
-const trend=(t,sub,pts,opt={})=>{const u=opt.u||'%',last=pts.length-1,vals=pts.map(p=>p.v).concat(opt.bm?[opt.bm.v]:[]),mx=Math.max(...vals)*1.15||1,pos=v=>Math.min(100,v/mx*100);return `<div class=cd><h3>${t}</h3><p class=sub style="margin-top:-6px">${sub}</p><div class=trk>${opt.fill?`<div class=f style="width:${pos(pts[last].v)}%"></div>`:''}${opt.bm?`<div class=g style="left:${pos(opt.bm.v)}%"></div>`:''}${pts.map((p,i)=>i==0?`<div class=s style="left:${pos(p.v)}%" title="${p.l}: ${p.v}${u}"></div>`:`<div class=pt style="left:${pos(p.v)}%;background:var(--${i==last?'green':'blue'})" title="${p.l}: ${p.v}${u}"></div>${i==last?`<span class=cup style="right:auto;left:${pos(p.v)}%;margin-left:-8px" title="Best result">\ud83c\udfc6</span>`:''}`).join('')}</div><div class=lg>${pts.map((p,i)=>i==last?`<span><strong>${p.l} · ${p.v}${u}</strong></span>`:`<span>${p.l} · ${p.v}${u}</span>`).join('')}${opt.bm?`<span style="color:var(--gold);font-weight:700">${opt.bm.l} · ${opt.bm.v}${u}</span>`:''}</div></div>`};
+const yoy=(pc,pp,dn,pd)=>pp==null?'<span class=yoy>Baseline year</span>':`<span class="yoy ${pc>=pp?'up':'dn'}">${pc>=pp?'▲':'▼'} ${+Math.abs(pc-pp).toFixed(1)} pts · ${dn>=pd?'+':'−'}${Math.abs(dn-pd).toLocaleString('en-US')} units (${dn>=pd?'+':'−'}${(Math.abs(dn-pd)/pd*100).toFixed(1)}%)</span>`;
+const sf=(y,dn,pc,pv,bm,mx,c)=>`<div class=sf><div class=hd><b>${y}</b><span>${dn.toLocaleString('en-US')} units</span></div><div class=tkw><div class=hw><div style="width:${Math.min(100,pc/mx*100)}%;background:var(--${c})"></div></div><b style="left:${Math.min(100,bm/mx*100)}%" title="Intl. benchmark · ${bm}%"></b></div><div class=ft><span><strong>${pc}%</strong> self-sufficiency</span>${yoy(pc,pv?pv.pc:null,dn,pv?pv.dn:null)}</div></div>`;
 const I=[
 {id:'i1',n:1,code:'INIT-01',name:'New Blood Bank Activation & Capacity Enhancement',tag:'36 of 36 blood banks operating',k:['BB-03'],s:[['Activation','Blood Bank Activation — Capacity Enhancement','Operational status and key achievements',
 tiles([[36,'Blood banks'],[36,'Already operated','green'],['100%','Operational rate','green'],['88%','September target','teal']])+
@@ -129,7 +138,7 @@ const kc=(id,l)=>{const k=K[id];return `<div class=cd><div class=kh><b>${id}</b>
 const home=()=>`<section class=hero><small>Central Administration for Healthcare Providers · Egypt Healthcare Authority</small><h1>Blood Bank Achievements 2026</h1><p>Pick a path. Each initiative branches into its slides and the KPI it moved.</p><div class=ch><span>5 of 5 KPIs above Sept. target</span><span>${seen.size} of 4 paths explored</span></div></section><div class=rail>${I.map(x=>`<button class="node ${seen.has(x.id)?'seen':''}" data-go=${x.id}><span class=n>${seen.has(x.id)?'✓':x.n}</span><span class=t><small>${x.code}</small><b>${x.name}</b><em>${x.tag}</em>${trk(K[x.k[0]])}</span></button>`).join('')}<button class=node data-go=impact><span class=n>★</span><span class=t><small>WHERE IT LEADS</small><b>Stock Management &amp; Self-Sufficiency</b><em>83% blood self-sufficiency across EHA · 0% expiry in most blood banks</em></span></button></div>`;
 const kp=()=>`<h2 class=st style="margin-top:8px">KPI scoreboard — September</h2><p class=sub>All 5 KPIs finished above their September targets. Use Open to jump to the initiative behind each one.</p><div class=lg style="margin-top:8px"><span>Unit: % (<span lang=ar dir=rtl>الوحدة</span>)</span><span>Baseline <span lang=ar dir=rtl>خط الأساس</span></span><span>Target <span lang=ar dir=rtl>المستهدف</span></span><span>Achieved <span lang=ar dir=rtl>الإنجاز</span></span></div>${Object.keys(K).map(k=>kc(k,1)).join('')}`;
 const br=x=>{const s=x.s[tab]||x.s[0],nx=nextOf(x.id);return `<button class=bk data-go=home>‹ Map</button><div class=bh><span class=n>${x.n}</span><div><small>${x.code}</small><h2>${x.name}</h2></div></div>${x.s.length>1?`<div class=tb>${x.s.map((y,j)=>`<button class="bt ${j==tab?'on':''}" data-go=${x.id} data-t=${j}>${y[0]}</button>`).join('')}</div>`:''}<h3 class=st>${s[1]}</h3><p class=sub>${s[2]}</p>${s[3]}<h3 class=st>${x.k.length>1?'KPIs':'KPI'} it moved</h3>${x.k.map(k=>kc(k)).join('')}<div class=ac><button class=bt data-go=home>Back to map</button><button class="bt pri" data-go=${nx}>${nx=='impact'?'See the impact':'Next path'} ›</button></div>`};
-const imp=()=>`<button class=bk data-go=home>‹ Map</button><h2 class=st style="margin-top:4px">Stock Management &amp; Self-Sufficiency</h2><p class=sub>Improving blood availability across the EHA network</p>${trend('Blood self-sufficiency in EHA','Share of demand met by local donations, 2024–2026.',[{v:96,l:'2024'},{v:113,l:'2025'},{v:121,l:'2026'}],{bm:{v:100,l:'Fully self-sufficient'},fill:true})}<div class=co>✓ Self-sufficiency has climbed every year and now sits 21 points above fully self-sufficient.</div>${trend('Expiry rate in EHA vs. international benchmark','Share of collected units that expire before use, 2024–2026 — lower is better.',[{v:0.6,l:'2024'},{v:0.3,l:'2025'},{v:0.1,l:'2026'}],{bm:{v:0.5,l:'Intl. benchmark'},fill:false})}<div class=co>✓ Expiry has fallen every year and now sits 0.4 points inside the international benchmark.</div><div class=ac><button class=bt data-go=home>Back to map</button><button class="bt pri" data-go=kpis>Review the KPIs ›</button></div>`;
+const imp=()=>{const mx=Math.max(96,113,121,100)*1.08,emx=Math.max(.6,.3,.1,.5)*1.2;return `<button class=bk data-go=home>‹ Map</button><h2 class=st style="margin-top:4px">Stock Management &amp; Self-Sufficiency</h2><p class=sub>Improving blood availability across the EHA network</p><div class=cd><h3>Blood self-sufficiency in EHA</h3><p class=sub style="margin-top:-6px">Share of demand met by local donations vs. donation volume, 2024–2026.</p><div class=lg style="justify-content:flex-start;gap:16px"><span><i class=sw style="background:var(--gold)"></i>Intl. benchmark · 100%</span></div>${sf('2024',26845,96,null,100,mx,'blue')}${sf('2025',36735,113,{dn:26845,pc:96},100,mx,'teal')}${sf('2026',44333,121,{dn:36735,pc:113},100,mx,'green')}</div><div class=co>✓ Self-sufficiency has climbed every year and now sits 21 points above fully self-sufficient, with donations rising from 26,845 to 44,333 units.</div><div class=cd><h3>Expiry rate in EHA vs. international benchmark</h3><p class=sub style="margin-top:-6px">Share of collected units that expire before use, 2024–2026 — lower is better.</p>${hb('2024','0.6%',.6/emx*100,'red')}${hb('2025','0.3%',.3/emx*100,'teal')}${hb('2026','0.1%',.1/emx*100,'green')}${hb('Intl. benchmark','0.5%',.5/emx*100,'gold')}</div><div class=co>✓ Expiry has fallen every year and now sits 0.4 points inside the international benchmark.</div><div class=ac><button class=bt data-go=home>Back to map</button><button class="bt pri" data-go=kpis>Review the KPIs ›</button></div>`;};
 function draw(){
 $('#v').innerHTML=cur=='home'?home():cur=='kpis'?kp():cur=='impact'?imp():br(I.find(x=>x.id==cur));
 const nv=/^i\d/.test(cur)?'home':cur;
@@ -149,5 +158,5 @@ go(location.hash.slice(1)||'home');
 </script>
 </body>
 </html>
- 
 
+</body></html>
